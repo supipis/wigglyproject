@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import { Link } from "gatsby"
 
 import Layout from "../components/layout"
-import Image from "../components/image"
+
 import SEO from "../components/seo"
 import {MyAPI} from "../util/MyAPI";
 
@@ -81,11 +81,7 @@ const IndexPage = () => {
     <Link to="/page-2/">Manage Articles</Link> <br />
  </Layout>
 
-  function createArticle(e) {
 
-  }
-
-  document.getElementById("create-article").addEventListener("click", createArticle)
 }
 
 export default IndexPage

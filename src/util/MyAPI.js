@@ -11,8 +11,27 @@ export class MyAPI {
     }
 
     static getAllArticles() {
-        return fetch(MyAPI.host + "/api/articles", {
-            method: "GET"
+        return fetch(MyAPI.host + "/api/articles").then(response => response.json());
+    }
+
+    static deleteArticle(articleId) {
+        return fetch(MyAPI.host + `/api/articles/${articleId}`, {
+            method: "DELETE",
+        });
+    }
+
+    static editArticle(articleId, title, body) {
+        return fetch(MyAPI.host + `/api/articles/${articleId}`, {
+            method: "PUT", body: JSON.stringify({
+                title,
+                body
+            })
+        });
+    }
+
+    static getArticle(articleId) {
+        return fetch(MyAPI.host + `/api/articles/${articleId}`, {
+            method: "GET",
         }).then(response => response.json());
     }
 }
