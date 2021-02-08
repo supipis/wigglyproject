@@ -12,7 +12,7 @@ const EditPage = () => {
     {
       title: "",
       body: "",
-
+      image_url: "",
     });
   let [loading, setLoading] = useState(true);
 
@@ -26,6 +26,7 @@ const EditPage = () => {
     })
   }
 
+
   useEffect(() => {
     MyAPI.getArticle(articleId).then(responseJson => {
       setArticle(responseJson);
@@ -37,9 +38,11 @@ const EditPage = () => {
 
   function onEditArticleClick(e) {
     e.preventDefault();
-    MyAPI.editArticle(articleId, article.title, article.body).then((response) => {
+    debugger;
+    MyAPI.editArticle(articleId, article.title, article.body, article.image_url).then((response) => {
       alert("Article successfully updated.")
     })
+
   }
 
 
@@ -50,22 +53,32 @@ const EditPage = () => {
 
 
     {loading && <p>Loading...</p>}
-    {!loading && <form action="">
+    {!loading && <form id="editForm">
       <label>
-        <h5 className="title">Title:{" "}
+        Title:{" "}
           <input type="text"
             name="title"
             value={article.title}
-            onChange={handleChange} />  </h5>
+          onChange={handleChange} />
+      </label>
+      <br />
+
+      <label>
+        Image URL:{" "}
+        <input type="text"
+          name="image_url"
+          value={article.image_url}
+          onChange={handleChange} />
       </label>
       <br />
       <br />
+
       <label>
-        <h5 className="body">Body:{" "}
-          <input type="text"
+        Body:{" "}
+        <textarea type="text"
             name="body"
             value={article.body}
-            onChange={handleChange} /> </h5>
+          onChange={handleChange} />
       </label>
       <br />
 

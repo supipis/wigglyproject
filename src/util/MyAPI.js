@@ -1,11 +1,12 @@
 export class MyAPI {
     static host = "http://localhost:8080";
 
-    static createArticle(title, body) {
+    static createArticle(title, body, image_url) {
         return fetch(MyAPI.host + "/api/articles", {
             method: "POST", body: JSON.stringify({
                 title,
-                body
+                body,
+                image_url
             })
         });
     }
@@ -20,11 +21,12 @@ export class MyAPI {
         });
     }
 
-    static editArticle(articleId, title, body) {
+    static editArticle(articleId, title, body, image_url) {
         return fetch(MyAPI.host + `/api/articles/${articleId}`, {
             method: "PUT", body: JSON.stringify({
                 title,
-                body
+                body,
+                image_url
             })
         });
     }

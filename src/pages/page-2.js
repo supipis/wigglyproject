@@ -26,7 +26,11 @@ const SecondPage = () => {
         })
     }
 
-
+    function onEditArticle(articleId) {
+        MyAPI.editArticle(articleId).then(() => {
+            alert("Article updated successfully.");
+        })
+    }
 
 
     return <Layout>
@@ -36,9 +40,12 @@ const SecondPage = () => {
         <table className="manage-container">
             <thead>
                 <tr className="header">
-                    <td className="art-id">
+                    <th className="art-id">
                         <h4>Article ID</h4>
-                    </td>
+                    </th>
+                    <th className="image_url">
+                        <h4>Image</h4>
+                    </th>
                     <th className="title">
                         <h4>Title</h4>
                     </th>
@@ -54,6 +61,8 @@ const SecondPage = () => {
             {articles.map(article => {
                 return <tr>
                     <td className="article-id">{article.id}</td>
+                    <td className="article-image_url"><img src={article.image_url} />
+                    </td>
                     <td className="article-title">{article.title}{" "}</td>
                     <td className="article-body">{article.body} {" "}</td>
                     <td className="article-created_at">{article.created_at}</td>

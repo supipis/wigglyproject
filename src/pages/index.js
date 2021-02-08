@@ -7,11 +7,13 @@ import SEO from "../components/seo"
 import {MyAPI} from "../util/MyAPI";
 
 const IndexPage = () => {
-  let [state, setState] = useState({
+  const initialState = {
     myTitle: "",
     artBody: "",
+    imgUrl: "",
     saveState: "not_saved"
-  })
+  };
+  let [state, setState] = useState(initialState)
 
 
   let handleChange = e => {
@@ -25,12 +27,12 @@ const IndexPage = () => {
   function onAddArticleClick(e) {
     //make the http request
     e.preventDefault();
-    MyAPI.createArticle(state.myTitle, state.artBody).then((response) => {
+    MyAPI.createArticle(state.myTitle, state.artBody, state.imgUrl).then((response) => {
       alert("Article successfully added.")
       setState({
-        ...state,
+        ...initialState,
         saveState: "saved"
-      })
+      });
     })
     //handle response from the http request
   }
@@ -45,6 +47,16 @@ const IndexPage = () => {
     <div className="part-one">
       <h3>Create Article</h3>
       <form action="">
+      <label>
+          Image URL:{" "}
+          <input
+            type="text"
+            name="imgUrl"
+            value={state.imgUrl}
+            onChange={handleChange}
+            id="image"
+          />
+        </label>
         <label>
           Title:{" "}
           <input

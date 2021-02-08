@@ -637,10 +637,7 @@ form{
 
 
 
-.art-id, .title, .body, .created_at{
-  background-color: #7d8083;
-  padding: 5px;
-  padding-top: 10px;
+th {
   height: 50px;
 }
 
@@ -648,3 +645,8 @@ icons{
   color: #000;
 
 }
+
+
+
+
+
