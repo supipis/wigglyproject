@@ -8,7 +8,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
-
+import "fontsource-open-sans" 
 import Header from "./header"
 import "./layout.css"
 
@@ -30,7 +30,8 @@ const Layout = ({ children }) => {
         style={{
           margin: `0 auto`,
           maxWidth: 960,
-          padding: `0 1.0875rem 1.45rem`,
+          padding: `0 1rem 1rem`,
+
         }}
       >
         <main>{children}</main>

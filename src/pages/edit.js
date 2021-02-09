@@ -51,7 +51,7 @@ const EditPage = () => {
     <h3>Edit Articles</h3>
     <h5>Article ID:{articleId}</h5>
 
-
+    <div className="editContainer">
     {loading && <p>Loading...</p>}
     {!loading && <form id="editForm">
       <label>
@@ -62,7 +62,7 @@ const EditPage = () => {
           onChange={handleChange} />
       </label>
       <br />
-
+        <br />
       <label>
         Image URL:{" "}
         <input type="text"
@@ -81,11 +81,11 @@ const EditPage = () => {
           onChange={handleChange} />
       </label>
       <br />
-
+        <br />
       <button onClick={onEditArticleClick} id="edit-article">UPDATE</button>
 
     </form>}
-
+    </div>
 
     <Link to="/page-2/">Go back</Link>
 

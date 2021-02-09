@@ -37,7 +37,8 @@ const SecondPage = () => {
         <SEO title="Page two" />
         <p>Welcome Admin!</p>
         <h3>Manage Article</h3>
-        <table className="manage-container">
+        <div class="manage-container">
+            <table>
             <thead>
                 <tr className="header">
                     <th className="art-id">
@@ -64,7 +65,7 @@ const SecondPage = () => {
                     <td className="article-image_url"><img src={article.image_url} />
                     </td>
                     <td className="article-title">{article.title}{" "}</td>
-                    <td className="article-body">{article.body} {" "}</td>
+                    <td className="article-body"><ReadMore max={72} text={article.body} />{" "}</td>
                     <td className="article-created_at">{article.created_at}</td>
                     <td> <a className='icons' href='#' onClick={(e) => navigate(`/edit/?articleId=${article.id}`)}>
                         <FontAwesomeIcon icon={'edit'} size="1x" color="black" />
@@ -76,8 +77,16 @@ const SecondPage = () => {
             })}
             </tbody>
         </table>
+        </div>
         <Link to="/">Go back to the homepage</Link>
     </Layout>;
+}
+
+function ReadMore(props) {
+    let [showMore, setShowMore] = useState(false);
+    return <>{showMore ? props.text : props.text.substring(0, props.max)}
+        {<a className={"showmore"} href="#" onClick={() => setShowMore(!showMore)}>{showMore ? "Show Less" : "Show More"}</a>}
+    </>;
 }
 
 export default SecondPage

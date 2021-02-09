@@ -44,6 +44,7 @@ const IndexPage = () => {
     <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
 
     </div>
+    <div className="article-container">
     <div className="part-one">
       <h3>Create Article</h3>
       <form action="">
@@ -57,6 +58,8 @@ const IndexPage = () => {
             id="image"
           />
         </label>
+          <br />
+          <br />
         <label>
           Title:{" "}
           <input
@@ -84,9 +87,12 @@ const IndexPage = () => {
     </div>
 
     <div className="part-two">
+
       <h4>Page Preview</h4>
       <h5>Article title: {state.myTitle}</h5>
       <h5>Article content: {state.artBody}</h5>
+    </div>
+  
     </div>
 
 
