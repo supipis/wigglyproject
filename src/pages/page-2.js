@@ -65,7 +65,7 @@ const SecondPage = () => {
                     <td className="article-image_url"><img src={article.image_url} />
                     </td>
                     <td className="article-title">{article.title}{" "}</td>
-                    <td className="article-body"><ReadMore max={72} text={article.body} />{" "}</td>
+                    <td className="article-body"><ReadMore max={77} text={article.body} />{" "}</td>
                     <td className="article-created_at">{article.created_at}</td>
                     <td> <a className='icons' href='#' onClick={(e) => navigate(`/edit/?articleId=${article.id}`)}>
                         <FontAwesomeIcon icon={'edit'} size="1x" color="black" />

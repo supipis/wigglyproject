@@ -38,7 +38,6 @@ const EditPage = () => {
 
   function onEditArticleClick(e) {
     e.preventDefault();
-    debugger;
     MyAPI.editArticle(articleId, article.title, article.body, article.image_url).then((response) => {
       alert("Article successfully updated.")
     })
